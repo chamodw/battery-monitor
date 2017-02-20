@@ -7,12 +7,12 @@ performed_tilts = 0
 detected_tilts = 0
 
 bt = serial.Serial(
-    port='/dev/tty.usbserial-AL00C894',
-    baudrate=2400,
+    port='/dev/tty.usbserial-A505T97S',
+    baudrate=115200,
     parity=serial.PARITY_ODD,
     stopbits=serial.STOPBITS_TWO,
     bytesize=serial.SEVENBITS,
-    timeout=50
+    timeout=10
 )
 
 ard = serial.Serial(
@@ -77,7 +77,7 @@ while(1):
         stop_flag = True;
 
         master = open('logs/master.txt', 'a')
-        master.write("%s\t%s\t%d\t%d\n"%(battery_id, time.strftime("%b-%d %H:%M:%S", time.gmtime(start)), detected_tilts, performed_tilts));
+        master.write("%s\t%s\t\t%d\t%d\n"%(battery_id, time.strftime("%b-%d %H:%M:%S", time.gmtime(start)), detected_tilts, performed_tilts));
         master.close();
 
         log.close()
