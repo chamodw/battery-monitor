@@ -49,7 +49,7 @@ time.sleep(3);
 ard.write('A'); #Signal start
 thread1 = threading.Thread(target=read_bluetooth)
 thread1.start()
-log = open('logs/ID: ' + battery_id  + "  " + time.strftime("%b%d-%H:%M:%S", time.localtime())+ '.txt', 'w');
+log = open('logs/ID:' + battery_id  + "-" + time.strftime("%b%d-%H:%M:%S", time.localtime())+ '.txt', 'w');
 while(1):
     ard_str = ard.readline()[0:2]
     performed_tilts+=1;
@@ -66,8 +66,9 @@ while(1):
     log.write("\n");
 
     #print   str(detected_tilts), '\\', str(performed_tilts), "Elapsed time:",
-    sys.stdout.write("\r%d\\%d    Elapsed time: %s"% (detected_tilts, performed_tilts,time.strftime("%H:%M:%S", time.gmtime(time.time()-start)))),
-    sys.stdout.flush();
+    if !stop_flag:
+        sys.stdout.write("\r%d\\%d    Elapsed time: %s"% (detected_tilts, performed_tilts,time.strftime("%H:%M:%S", time.gmtime(time.time()-start)))),
+        sys.stdout.flush();
     if (time.time() - last_bt_transmission) > 100:
         ard.write('S')
         ard.flush();
