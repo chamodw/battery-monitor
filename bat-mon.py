@@ -11,7 +11,8 @@ bt = serial.Serial(
     baudrate=2400,
     parity=serial.PARITY_ODD,
     stopbits=serial.STOPBITS_TWO,
-    bytesize=serial.SEVENBITS
+    bytesize=serial.SEVENBITS,
+    timeout=50
 )
 
 ard = serial.Serial(
