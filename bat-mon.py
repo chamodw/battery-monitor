@@ -75,6 +75,11 @@ while(1):
         ard.flush();
         ard.close();
         stop_flag = True;
+
+        master = open('logs/master.txt', 'a')
+        master.write("%s\t%s\t%d\t%d\n"%(battery_id, time.strftime("%b-%d %H:%M:%S", time.gmtime(start)), detected_tilts, performed_tilts));
+        master.close();
+
         log.close()
         bt.close()
         ard.close()
