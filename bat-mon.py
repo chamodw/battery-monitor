@@ -66,7 +66,7 @@ while(1):
     log.write("\n");
 
     #print   str(detected_tilts), '\\', str(performed_tilts), "Elapsed time:",
-    if !stop_flag:
+    if stop_flag == False:
         sys.stdout.write("\r%d\\%d    Elapsed time: %s"% (detected_tilts, performed_tilts,time.strftime("%H:%M:%S", time.gmtime(time.time()-start)))),
         sys.stdout.flush();
     if (time.time() - last_bt_transmission) > 100:
